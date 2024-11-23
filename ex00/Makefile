@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: nsakanou <nsakanou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/17 10:30:00 by nsakanou          #+#    #+#              #
-#    Updated: 2024/11/17 10:32:02 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/11/23 19:39:41 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CXXFLAGS += -MMD -MP
 RM = rm -rf
 
 
-SRCS = Fixed.cpp
+SRCS = Fixed.cpp \
+		main.cpp
 OBJDIR	= obj
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DEPENDS	= $(OBJS:.o=.d)
