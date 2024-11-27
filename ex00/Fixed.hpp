@@ -6,7 +6,7 @@
 class Fixed
 {
 	private:
-		int					_RawBitValue;
+		int					Value;
 		static const int	_RawBitLiteral = 8;
 	public:
 		Fixed();

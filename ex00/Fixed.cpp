@@ -3,35 +3,37 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
-	_RawBitValue = 0;	
+	Value = 0;	
 }
 
+//コピーコンストラクタ
 Fixed::Fixed(const Fixed &othre)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	_RawBitValue = (othre.getRawBits());
+	Value = (othre.getRawBits());
 }
 
+//コピー代入演算子
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->_RawBitValue = other.getRawBits();
+		this->Value = other.getRawBits();
 	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout <<"Destructor called" <<std::endl;
 }
 
 int	Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (_RawBitValue);
+	return (Value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	_RawBitValue = raw;
+	Value = raw;
+}
+
+Fixed::~Fixed()
+{
+	std::cout <<"Destructor called" <<std::endl;
 }
