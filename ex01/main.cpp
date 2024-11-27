@@ -4,9 +4,9 @@ int main(void) {
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
-	Fixed const d( b );
+	Fixed const d( b );//Copy constructor called
 
-	a = Fixed( 1234.4321f );
+	a = Fixed( 1234.4321f );//Float constructor called -> Copy assignment operator called
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;

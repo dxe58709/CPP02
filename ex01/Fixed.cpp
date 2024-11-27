@@ -58,8 +58,9 @@ int	Fixed::toInt() const //固定小数点値を整数に変換
 	return this->Value >> _RawBitLiteral;
 }
 
+//<< a
 std::ostream& operator<<(std::ostream& os, Fixed const& fixed)
 {
-	os << fixed.toFloat();//出力Fixedオブジェクトをfloatに変換して、osに出力する
+	os << fixed.toFloat();
 	return (os);
 }
