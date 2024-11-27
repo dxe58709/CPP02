@@ -50,12 +50,12 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat() const //固定小数点値を浮動小数点に変換
 {
-	return static_cast<float>(this->Value) / (1 << _RawBitLiteral);
+	return (static_cast<float>(this->Value) / (1 << _RawBitLiteral));
 }
 
 int	Fixed::toInt() const //固定小数点値を整数に変換
 {
-	return this->Value >> _RawBitLiteral;
+	return (this->Value >> _RawBitLiteral);
 }
 
 //<< a
