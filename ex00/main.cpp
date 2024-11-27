@@ -5,6 +5,7 @@ int	main(void) {
 	Fixed	b( a );
 	Fixed	c;
 
+	a.setRawBits(42);
 	c = b;
 
 	std::cout << a.getRawBits() << std::endl;
