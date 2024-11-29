@@ -113,61 +113,52 @@ Fixed Fixed::operator*(const Fixed &other)const
 	Fixed result(this->toFloat() * other.toFloat());
 	return (result);
 }
-/*
-Fixed operator/(const Fixed &other) const {
-        if (other.getRawBits() == 0)
-            throw DivisionByZeroError();
-        // ここで割り算処理を行う
-        return Fixed();
-    }
-    int getRawBits() const { return 0; }  // ダミーのメソッド
-}
 
 Fixed Fixed::operator/(const Fixed &other)const 
-{ 
-    if (other.getRawBits() == 0)
-        throw std::runtime_error("Division by zero!");
-    return Fixed(this->toFloat() / other.toFloat()); 
+{
+	if (other.getRawBits() == 0) {
+		std::cerr << "Error: Division by zero." << std::endl;
+		return (0);
+	}
+	Fixed result(this->toFloat() / other.toFloat());
+	return (result);
 }
-*/
 
-// インクリメント/デクリメント演算子（前置き）
 Fixed& Fixed::operator++() {
-    Value++;
-    return *this;
+	Value++;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed temp = *this;
+	Value++;
+	return (temp);
 }
 
 Fixed& Fixed::operator--() {
-    Value--;
-    return *this;
-}
-
-// インクリメント/デクリメント演算子（後置き）
-Fixed Fixed::operator++(int) {
-    Fixed temp = *this;
-    Value++;
-    return temp;
+	Value--;
+	return (*this);
 }
 
 Fixed Fixed::operator--(int) {
-    Fixed temp = *this;
-    Value--;
-    return temp;
+	Fixed temp = *this;
+	Value--;
+	return (temp);
 }
 
-// 静的メンバ関数: min と max
+//min,max
 Fixed& Fixed::min(Fixed &a, Fixed &b) {
-    return (a < b) ? a : b;
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
 }
 
 const Fixed& Fixed::min(const Fixed &a, const Fixed &b) {
-    return (a < b) ? a : b;
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
 }
 
 Fixed& Fixed::max(Fixed &a, Fixed &b) {
-    return (a > b) ? a : b;
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
 }
 
 const Fixed& Fixed::max(const Fixed &a, const Fixed &b) {
-    return (a > b) ? a : b;
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
 }
